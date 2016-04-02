@@ -16,10 +16,16 @@ QRectF Cell::boundingRect() const
 void Cell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
    painter->drawRect(0,0,50,50);
-   //if (state==Statenothing){
-   //    m_text
-   //}
-   painter->drawText(25,25,m_text);
+   switch (m_state) {
+   case StateX:
+       painter->drawText(25,25, "X");
+       break;
+   case State0:
+       painter->drawText(25,25, "0");
+       break;
+   default:
+       break;
+   }
 }
 
 void Cell::mousePressEvent(QGraphicsSceneMouseEvent *event)
