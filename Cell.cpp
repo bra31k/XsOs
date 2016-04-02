@@ -2,7 +2,7 @@
 #include <QPainter>
 #include <QGraphicsSceneMouseEvent>
 #include "MainWindow.hpp"
-Cell::Cell():QGraphicsItem()
+Cell::Cell():QGraphicsObject()
 
 {
     m_state=StateX;

@@ -1,10 +1,11 @@
 #ifndef CELL_HPP
 #define CELL_HPP
-#include <QGraphicsItem>
+#include <QGraphicsObject>
 
 
-class Cell:public QGraphicsItem
+class Cell:public QGraphicsObject
 {
+    Q_OBJECT
 public:
     Cell();
 
