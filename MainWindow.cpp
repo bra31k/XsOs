@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
         }
     }
     m_scene->update();
-    std::cout >> m_cells[0]->text();
+//    std::cout >> m_cells[0]->text();
 
 }
 
