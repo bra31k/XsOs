@@ -59,6 +59,8 @@ void Cell::setState(State stat)
         return;
     }
     m_state=stat;
+
+    update();
 }
 
 void Cell::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
