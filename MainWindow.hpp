@@ -1,13 +1,14 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef MAINWINDOW_HPP
+#define MAINWINDOW_HPP
 
 #include <QMainWindow>
+
+class QGraphicsScene;
+class Cell;
 
 namespace Ui {
 class MainWindow;
 }
-
-class QGraphicsScene;
 
 class MainWindow : public QMainWindow
 {
@@ -16,16 +17,15 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
-protected:
-    void resizeEvent(QResizeEvent *event);
-
-protected slots:
-    void updateSceneScale();
+    Cell *m_cells[9];
+    int i=0;
+    void Finish();
 
 private:
-    Ui::MainWindow *ui;
     QGraphicsScene *m_scene;
+    Ui::MainWindow *ui;
+
+
 };
 
-#endif // MAINWINDOW_H
+#endif // MAINWINDOW_HPP
