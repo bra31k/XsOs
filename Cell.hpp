@@ -22,6 +22,10 @@ public:
     State state() {return m_state;}
     void setState(State stat);
     QString text(){return m_text;}
+
+signals:
+    void clicked(Cell *cell);
+
 private:
     QString m_text;
 protected:

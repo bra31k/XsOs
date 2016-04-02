@@ -63,15 +63,6 @@ void Cell::setState(State stat)
 
 void Cell::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-        if (event->button() == Qt::LeftButton) {
-            m_text="x";
-        }
-        if (event->button() == Qt::RightButton) {
-            m_text="o";
-        }
-
-
-
-    update();
+    emit clicked(this);
 }
 
