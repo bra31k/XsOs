@@ -5,7 +5,7 @@
 Cell::Cell():QGraphicsObject()
 
 {
-    m_state=StateX;
+    m_state=Statenothing;
 }
 
 QRectF Cell::boundingRect() const
