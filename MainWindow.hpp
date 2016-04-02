@@ -21,6 +21,9 @@ public:
     int i=0;
     void Finish();
 
+protected slots:
+    void onCellClicked(Cell *cell);
+
 private:
     QGraphicsScene *m_scene;
     Ui::MainWindow *ui;
