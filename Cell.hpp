@@ -1,10 +1,11 @@
 #ifndef CELL_HPP
 #define CELL_HPP
-#include <QGraphicsItem>
+#include <QGraphicsObject>
 
 
-class Cell:public QGraphicsItem
+class Cell:public QGraphicsObject
 {
+    Q_OBJECT
 public:
     Cell();
 
@@ -21,6 +22,10 @@ public:
     State state() {return m_state;}
     void setState(State stat);
     QString text(){return m_text;}
+
+signals:
+    void clicked(Cell *cell);
+
 private:
     QString m_text;
 protected:

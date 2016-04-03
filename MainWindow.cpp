@@ -18,10 +18,12 @@ MainWindow::MainWindow(QWidget *parent) :
             m_cells[i+3*j] = new Cell();
             m_scene->addItem(m_cells[i+3*j]);
             m_cells[i+3*j]->setPos(i*50,j*50);
+
+            connect(m_cells[i+3*j], SIGNAL(clicked(Cell*)), this, SLOT(onCellClicked(Cell*)));
         }
     }
     m_scene->update();
-    std::cout >> m_cells[0]->text();
+//    std::cout >> m_cells[0]->text();
 
 }
 
@@ -33,4 +35,13 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::onCellClicked(Cell *cell)
+{
+    if (qrand() % 2) {
+        cell->setState(Cell::State0);
+    } else {
+        cell->setState(Cell::StateX);
+    }
 }
