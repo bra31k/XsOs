@@ -39,9 +39,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::onCellClicked(Cell *cell)
 {
-    if (qrand() % 2) {
+    static bool PlayerMove = false;
+    
+    if (PlayerMove) {
         cell->setState(Cell::State0);
+        PlayerMove = false;
     } else {
         cell->setState(Cell::StateX);
+        PlayerMove = true;
     }
 }
