@@ -27,10 +27,20 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
-//void MainWindow:: Finish(){
-//    if (m_cells[0]->text()==m_cells[1]->text()==m_cells[2]->text() or m_cells[0]->text()==m_cells[4]->text()==m_cells[8]->text()){
-//        i=1;}
-//}
+int MainWindow::check()
+{
+    for (int i=1; i < 3; i++)
+        if ((m_cells[0]->state() == Cell::State(i) and m_cells[0]->state() == m_cells[1]->state() and m_cells[1]->state() == m_cells[2]->state()) ||
+            (m_cells[0]->state() == Cell::State(i) and m_cells[0]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[8]->state()) ||
+            (m_cells[0]->state() == Cell::State(i) and m_cells[0]->state() == m_cells[3]->state() and m_cells[3]->state() == m_cells[6]->state()) ||
+            (m_cells[6]->state() == Cell::State(i) and m_cells[6]->state() == m_cells[7]->state() and m_cells[7]->state() == m_cells[8]->state()) ||
+            (m_cells[2]->state() == Cell::State(i) and m_cells[2]->state() == m_cells[5]->state() and m_cells[5]->state() == m_cells[8]->state()) ||
+            (m_cells[2]->state() == Cell::State(i) and m_cells[2]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[6]->state()) ||
+            (m_cells[1]->state() == Cell::State(i) and m_cells[1]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[6]->state()) ||
+            (m_cells[3]->state() == Cell::State(i) and m_cells[3]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[5]->state()) )
+            return i;
+
+}
 
 MainWindow::~MainWindow()
 {
