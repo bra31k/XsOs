@@ -19,7 +19,7 @@ public:
     ~MainWindow();
     Cell *m_cells[9];
     int i=0;
-    void check();
+    int check();
     void color1(int i);
 
 protected slots:
