@@ -42,6 +42,50 @@ int MainWindow::check()
 
 }
 
+void MainWindow::color1(int i)
+{
+    if (m_cells[0]->state() == m_cells[1]->state() and m_cells[1]->state() == m_cells[2]->state()){
+        m_cells[0]->setState(Cell::State(i));
+        m_cells[1]->setState(Cell::State(i));
+        m_cells[2]->setState(Cell::State(i));
+    }
+    if (m_cells[0]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[8]->state()){
+        m_cells[0]->setState(Cell::State(i));
+        m_cells[4]->setState(Cell::State(i));
+        m_cells[8]->setState(Cell::State(i));
+    }
+    if (m_cells[0]->state() == m_cells[3]->state() and m_cells[3]->state() == m_cells[6]->state()){
+        m_cells[0]->setState(Cell::State(i));
+        m_cells[3]->setState(Cell::State(i));
+        m_cells[6]->setState(Cell::State(i));
+    }
+    if (m_cells[6]->state() == m_cells[7]->state() and m_cells[7]->state() == m_cells[8]->state()){
+        m_cells[6]->setState(Cell::State(i));
+        m_cells[7]->setState(Cell::State(i));
+        m_cells[8]->setState(Cell::State(i));
+    }
+    if (m_cells[2]->state() == m_cells[5]->state() and m_cells[5]->state() == m_cells[8]->state()){
+        m_cells[2]->setState(Cell::State(i));
+        m_cells[5]->setState(Cell::State(i));
+        m_cells[8]->setState(Cell::State(i));
+    }
+    if (m_cells[2]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[6]->state()){
+        m_cells[2]->setState(Cell::State(i));
+        m_cells[4]->setState(Cell::State(i));
+        m_cells[6]->setState(Cell::State(i));
+    }
+    if (m_cells[1]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[6]->state()){
+        m_cells[1]->setState(Cell::State(i));
+        m_cells[4]->setState(Cell::State(i));
+        m_cells[6]->setState(Cell::State(i));
+    }
+    if (m_cells[3]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[5]->state()){
+        m_cells[3]->setState(Cell::State(i));
+        m_cells[4]->setState(Cell::State(i));
+        m_cells[5]->setState(Cell::State(i));
+    }
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -50,6 +94,12 @@ MainWindow::~MainWindow()
 void MainWindow::onCellClicked(Cell *cell)
 {
     static bool PlayerMove = false;
+    static int moveCounter = 0;
+    
+    if(cell->state() != Cell::State(0)) {
+        return;
+    }
+
     
     if (PlayerMove) {
         cell->setState(Cell::State0);
@@ -58,4 +108,15 @@ void MainWindow::onCellClicked(Cell *cell)
         cell->setState(Cell::StateX);
         PlayerMove = true;
     }
+    
+    moveCounter++;
+
+    if (check()==1 || check()==2 || moveCounter == 9){
+       if (check()==1){
+            color1(3);
+    }
+       if (check()==2){
+            color1(4);
+    }
+}
 }
