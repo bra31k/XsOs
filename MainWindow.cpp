@@ -36,7 +36,7 @@ int MainWindow::check()
             (m_cells[6]->state() == Cell::State(i) and m_cells[6]->state() == m_cells[7]->state() and m_cells[7]->state() == m_cells[8]->state()) ||
             (m_cells[2]->state() == Cell::State(i) and m_cells[2]->state() == m_cells[5]->state() and m_cells[5]->state() == m_cells[8]->state()) ||
             (m_cells[2]->state() == Cell::State(i) and m_cells[2]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[6]->state()) ||
-            (m_cells[1]->state() == Cell::State(i) and m_cells[1]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[6]->state()) ||
+            (m_cells[1]->state() == Cell::State(i) and m_cells[1]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[5]->state()) ||
             (m_cells[3]->state() == Cell::State(i) and m_cells[3]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[5]->state()) )
             return i;
 
@@ -74,10 +74,10 @@ void MainWindow::color1(int i)
         m_cells[4]->setState(Cell::State(i));
         m_cells[6]->setState(Cell::State(i));
     }
-    if (m_cells[1]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[6]->state()){
+    if (m_cells[1]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[5]->state()){
         m_cells[1]->setState(Cell::State(i));
         m_cells[4]->setState(Cell::State(i));
-        m_cells[6]->setState(Cell::State(i));
+        m_cells[5]->setState(Cell::State(i));
     }
     if (m_cells[3]->state() == m_cells[4]->state() and m_cells[4]->state() == m_cells[5]->state()){
         m_cells[3]->setState(Cell::State(i));
